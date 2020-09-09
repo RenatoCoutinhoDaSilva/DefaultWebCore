@@ -1,0 +1,52 @@
+﻿@model Gestor.ViewModel.Login.LoginVM
+@{
+    Layout = "_LayoutLightBox";
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            <form id="form-login" asp-action="Index" asp-antiforgery="true" method="post">
+                <p class="text-danger">@ViewBag.Erro</p>
+                <div class="input-group mb-3">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Digite seu e-mail">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger btn-block"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input asp-for="Senha" type="password" class="form-control" placeholder="Digite sua senha">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Senha" class="text-danger btn-block"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="icheck-primary">
+                            <input asp-for="LembrarSe" type="checkbox" id="remember">
+                            <label for="remember">
+                                Lembrar-me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-4 col-sm-12">
+                        <button type="submit" class="btn btn-primary btn-block">Acessar</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+            <p class="mb-1">
+                <a href="@Url.Action("EsqueciMinhaSenha")">Esqueci minha senha</a>
+            </p>
+        </div>
+    </div>
+</div>

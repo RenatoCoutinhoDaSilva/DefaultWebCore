@@ -1,0 +1,19 @@
+﻿.login-page {
+    background-color: #1E899D;
+}
+.error404__text {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 600;
+}
+.access__title--answer {
+    font-size: 28px;
+    font-weight: 600;
+}
+.access__description {
+    font-size: 18px;
+    font-weight: 400;
+}
+.access__title {
+    text-align: center;
+}

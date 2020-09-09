@@ -1,0 +1,75 @@
+﻿@model Gestor.ViewModel.Login.ResetarSenhaVM
+@{
+    Layout = "_LayoutLightBox";
+    ViewData["Title"] = "Redefinir senha";
+}
+
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            <div class="row">
+                <div class="col-12">
+                    <a href="@Url.Action("Index")" class="access__link">
+                        <i class="access__icon fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                    <div class="access__top">
+                        <h2 class="access__title">
+                            Redefinir
+                            <span>Senha</span>
+                        </h2>
+                        <p class="access__description">
+                            Digite abaixo a sua nova senha nos dois campos. Lembra que ela precisa ter:
+                        </p>
+                        <ul class="access__list">
+                            <li class="access__item">
+                                <span class="access__text">Entre 8 e 16 caracteres</span>
+                            </li>
+                            <li class="access__item">
+                                <span class="access__text">Ao menos 1 número</span>
+                            </li>
+                            <li class="access__item">
+                                <span class="access__text">Ao menos 1 caracter em minúsculo</span>
+                            </li>
+                            <li class="access__item">
+                                <span class="access__text">Ao menos 1 caracter em maiúsculo</span>
+                            </li>
+                            <li class="access__item">
+                                <span class="access__text">Ao menos 1 símbolo como (!, $, -, #, etc...)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <form id="form-login" asp-action="ResetarSenha" asp-antiforgery="true" method="post">
+                <input type="hidden" asp-for="token" />
+                <p class="text-danger">@ViewBag.Erro</p>
+                <div class="input-group mb-3">
+                    <input asp-for="Senha" type="password" class="form-control" placeholder="Digite sua senha">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Senha" class="text-danger btn-block"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <input asp-for="ConfirmaSenha" type="password" class="form-control" placeholder="Confirme sua senha">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="ConfirmaSenha" class="text-danger btn-block"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

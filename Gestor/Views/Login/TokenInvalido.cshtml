@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Token inválido";
+    Layout = "_LayoutLightBox";
+}
+
+    <div class="login-box">
+        <div class="card">
+            <div class="card-body login-card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="@Url.Action("Index")" class="access__link">
+                            <i class="access__icon fas fa-arrow-left"></i>
+                            Voltar
+                        </a>
+                        <div class="access__top">
+                            <h2 class="access__title--answer">
+                                Token de senha expirado ou inválido
+                            </h2>
+                            <p class="access__description">
+                                Seu token de senha está expirado ou foi identificado como inválido, por favor, realize seu login novamente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="@Url.Action("Index", "Login")" class="btn btn-primary">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

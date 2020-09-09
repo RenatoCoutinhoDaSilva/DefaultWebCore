@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Link para resetar senha.";
+    Layout = "_LayoutLightBox";
+}
+
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            <div class="row">
+                <div class="col-12">
+                    <a href="@Url.Action("Index")" class="access__link">
+                        <i class="access__icon fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                    <h3 class="access__title--answer">
+                        Enviamos um link para o seu e-mail cadastrado.
+                    </h3>
+                    <p class="access__description">
+                        Verifique a sua caixa de entrada.
+                    </p>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <a href="@Url.Action("Index", "Login")" class="btn btn-primary btn-block">Voltar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

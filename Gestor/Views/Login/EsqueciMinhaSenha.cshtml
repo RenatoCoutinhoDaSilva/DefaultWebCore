@@ -1,0 +1,46 @@
+﻿@model Gestor.ViewModel.Login.EsqueciSenhaVM
+@{
+    Layout = "_LayoutLightBox";
+    ViewData["Title"] = "Esqueci minha senha";
+}
+
+<div class="login-box">
+    <div class="card">
+        <div class="card-body login-card-body">
+            <div class="row">
+                <div class="col-12">
+                    <a href="@Url.Action("Index")" class="access__link">
+                        <i class="access__icon fas fa-arrow-left"></i>
+                        Voltar
+                    </a>
+                    <h2 class="access__title">
+                        Esqueceu sua
+                        <span>Senha?</span>
+                    </h2>
+                    <p class="access__description">
+                        Digite abaixo o seu e-mail, uma mensagem de redefinição de senha será enviada para seu e-mail.
+                    </p>
+                </div>
+            </div>
+            <form id="form-login" asp-action="EsqueciMinhaSenha" asp-antiforgery="true" method="post">
+                <p class="text-danger">@ViewBag.Erro</p>
+                <div class="input-group mb-3">
+                    <input asp-for="Email" type="email" class="form-control" placeholder="Digite seu e-mail">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

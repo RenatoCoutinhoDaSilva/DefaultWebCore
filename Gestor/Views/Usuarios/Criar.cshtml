@@ -1,0 +1,167 @@
+﻿@model Gestor.ViewModel.Usuario.CadastroUsuarioVM
+@{
+    ViewData["Title"] = "Cadastrar Usuário";
+}
+
+<div class="home--small" style="background-image: url('/images/bg-default.png');">
+    <div class="home__content">
+        <div class="center">
+            <div class="home__content--top">
+                <h1 class="home__title--intern">
+                    Gestão de Usuários
+                </h1>
+                <div class="breadcrumb">
+                    <button class="breadcrumb__button" type="button">
+                        <i class="breadcrumb__icon fas fa-chevron-left"></i>
+                    </button>
+                    <ul class="breadcrumb__list">
+                        <li class="breadcrumb__item">
+                            <a href="@Url.Action("Index")" class="breadcrumb__link">Usuários</a>
+                        </li>
+                        <li class="breadcrumb__item">
+                            <span class="breadcrumb__text">Cadastro</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="register">
+    <div class="center">
+        <div class="register__box--white">
+            <header class="register__header">
+                <a href="@Url.Action("Index")" class="register__btn">
+                    <span class="register__icon--history">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16.183" viewBox="0 0 17 16.183">
+                            <g id="arrow-back" transform="translate(0.5 0.707)">
+                                <path id="Caminho_438" data-name="Caminho 438" d="M107.385,126.769,100,119.385,107.385,112" transform="translate(-100 -112)" fill="none" stroke="#b779d0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+                                <line id="Linha_20" data-name="Linha 20" x2="15.273" transform="translate(0.727 7.273)" fill="none" stroke="#b779d0" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" />
+                            </g>
+                        </svg>
+                    </span>
+                </a>
+                <h2 class="register__title">Cadastrar Usuário</h2>
+            </header>
+
+            <div class="register__content">
+                <form class="form" id="form-user" asp-action="Criar" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+                    <p class="error-default">@ViewBag.Erro</p>
+                    <div class="form__row">
+                        <div class="form__left">
+                            <div class="form__group">
+                                <label for="nameUser" class="form__label">Nome do usuário</label>
+                                <input asp-for="Nome" id="nameUser" type="text" class="form__input required" placeholder="Nome da informação">
+                                <span asp-validation-for="Nome" class="form__error"></span>
+                                <i class="form__error--icon fas fa-exclamation-circle"></i>
+                                <p class="form__error">Preencha corretamente!</p>
+                            </div>
+                            <div class="form__group">
+                                <label for="emailUser" class="form__label">E-mail</label>
+                                <input asp-for="Email" id="emailUser" type="email" class="form__input required" placeholder="Nome da informação">
+                                <span asp-validation-for="Nome" class="form__error"></span>
+                                <i class="form__error--icon fas fa-exclamation-circle"></i>
+                                <p class="form__error">Preencha corretamente!</p>
+                            </div>
+                        </div>
+                        <div class="form__right">
+                            <div class="form__group">
+                                <label for="" class="form__label">Foto</label>
+                                <div class="avatar-upload">
+                                    <div class="avatar-preview">
+                                        <label for="imageUpload">
+                                            <div id="imagePreview" style="background-image: url('/images/bg-upload.png');">
+                                                <div class="imageIcon">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="avatar-edit">
+                                        <input asp-for="Foto" type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload">Selecione uma foto</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="cpfProfessor" class="form__label">CPF</label>
+                            <input asp-for="Documento" id="cpfProfessor" type="text" class="form__input" placeholder="000.000.000-00">
+                            <span asp-validation-for="Documento" class="form__error"></span>
+                        </div>
+
+                        <div class="form__group">
+                            <label for="statusEscola" class="form__label">Status</label>
+                            <select asp-for="Ativo" class="form__select">
+                                <option value="true" class="form__option" selected>Ativo</option>
+                                <option value="false" class="form__option">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="telEscola" class="form__label">Telefone de Contato</label>
+                            <input asp-for="Telefone" id="telEscola" type="tel" class="form__input" placeholder="(00) 0000 0000">
+                            <span asp-validation-for="Telefone" class="form__error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form__divider"></div>
+
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="newPassword" class="form__label">Nova Senha</label>
+                            <input asp-for="Senha" id="newPassword" type="password" class="form__input required" placeholder="Digite a nova senha">
+                            <span asp-validation-for="Senha" class="form__error"></span>
+                            <i class="form__error--icon fas fa-exclamation-circle"></i>
+                            <p class="form__error">Preencha corretamente!</p>
+                        </div>
+                        <div class="form__group">
+                            <label for="confirmPassword" class="form__label">Repetir Nova Senha</label>
+                            <input asp-for="ConfirmaSenha" id="confirmPassword" type="password" class="form__input required" placeholder="Digite novamente a nova senha">
+                            <span asp-validation-for="ConfirmaSenha" class="form__error"></span>
+                            <i class="form__error--icon fas fa-exclamation-circle"></i>
+                            <p class="form__error">Preencha corretamente!</p>
+                        </div>
+                    </div>
+
+                    <div class="form__bottom">
+                        <button type="submit" class="form__btn">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Modal {
+    <div class="modal" id="modal-sucess">
+        <div class="modal__top">
+            <i class="modal__icon far fa-check-circle"></i>
+            <h2 class="modal__title">Usuário Cadastrado com Sucesso!</h2>
+        </div>
+        <a href="@Url.Action("Index")" class="modal__btn">Voltar</a>
+    </div>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            register.init();
+        });
+    </script>
+    @if (ViewBag.Ok == true) {
+        <script>
+            $(document).ready(function () {
+                $.fancybox.open({
+                    src: '#modal-sucess'
+                });
+            });
+        </script>
+    }
+}

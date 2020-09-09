@@ -1,0 +1,36 @@
+﻿@model Gestor.ViewModel.Usuario.DetalhesUsuarioVM
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <td>@Model.Nome</td>
+    </tr>
+    <tr>
+        <th>E-Mail</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>CPF</th>
+        <td>@Model.CPF</td>
+    </tr>
+    <tr>
+        <th>Data de Cadastro</th>
+        <td>@Model.DataCadastro</td>
+    </tr>
+    <tr>
+        <th>Perfil</th>
+        <td>@Model.Perfil</td>
+    </tr>
+    <tr>
+        <th>Ativo</th>
+        <td><span class="badge @Model.AtivoClass">@Model.AtivoString</span></td>
+    </tr>
+</table>
+
+<a href="@Url.Action("Editar", new { id = Model.Id })" class="btn btn-warning">Editar</a>
+<a href="@Url.Action("Index")" class="btn btn-info">Voltar</a>
